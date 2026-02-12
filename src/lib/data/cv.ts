@@ -69,7 +69,7 @@ const cv: CvData = {
 	name: 'Killian OTT',
 	title: 'PR0G3T',
 	summary:
-		"I've always been fascinated by what humankind is capable of achieving. I love watching it grow, and I'm lucky enough to witness it. I intend to have a global impact, to be forever inscribed in history, and to be remembered by human consciousness.",
+		'I stand in awe of the sheer scale of human potential. A privileged witness to our unfolding evolution, I seek not merely to watch, but to act, to leave a legacy that outlasts my time, forever inscribed in the collective consciousness.',
 	location: '',
 	links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/killian-ott/' }],
 	skills: ['Artificial Intelligence (AI)', 'Computer Science', 'Cybersecurity'],
