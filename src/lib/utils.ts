@@ -10,7 +10,8 @@ export const assetUrl = (p: string): string => {
 // Known logo mappings for companies with custom filenames
 const companyLogoMap: Record<string, string> = {
 	'Körber Supply Chain Software': 'korber',
-	'Team Cardinalis': 'teamcardinalis'
+	'Team Cardinalis': 'teamcardinalis',
+	'Sup de Vinci - école d\'informatique': 'sup-de-vinci'
 };
 
 // Brand-specific casing overrides

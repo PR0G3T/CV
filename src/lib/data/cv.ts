@@ -72,8 +72,21 @@ const cv: CvData = {
 		'I stand in awe of the sheer scale of human potential. A privileged witness to our unfolding evolution, I seek not merely to watch, but to act, to leave a legacy that outlasts my time, forever inscribed in the collective consciousness.',
 	location: '',
 	links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/killian-ott/' }],
-	skills: ['Artificial Intelligence (AI)', 'Computer Science', 'Cybersecurity'],
+	skills: [
+		'Artificial Intelligence (AI)',
+		'Computer Science',
+		'Cybersecurity',
+		'Web Development',
+		'Desktop Application Development'
+	],
 	experience: [
+		{
+			company: 'Sup de Vinci - école d\'informatique',
+			role: 'Instructor (Freelance)',
+			period: 'Dec 2025 - Present',
+			location: 'Bordeaux, Nouvelle-Aquitaine, France',
+			items: ['Teaching Web Development and Desktop Application Development.']
+		},
 		{
 			company: 'Team Cardinalis',
 			role: 'Chief Executive Officer',
@@ -230,6 +243,7 @@ const cv: CvData = {
 	],
 	languages: [
 		{ language: 'English', proficiency: 'Professional working proficiency' },
+		{ language: 'Finnish', proficiency: 'Elementary proficiency' },
 		{ language: 'French', proficiency: 'Native or bilingual proficiency' },
 		{ language: 'French Sign Languages', proficiency: 'Elementary proficiency' },
 		{ language: 'Spanish', proficiency: 'Elementary proficiency' }
