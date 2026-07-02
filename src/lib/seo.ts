@@ -1,13 +1,13 @@
 import cv from '$lib/data/cv';
 
 export const siteUrl = 'https://pr0g3t.com';
-export const ogImageUrl = `${siteUrl}/images/profile.png`;
+export const ogImageUrl = `${siteUrl}/images/profile.webp`;
 
 // Organization (optional) for Team Cardinalis with logo
 const orgTeamCardinalis = {
 	'@type': 'Organization',
 	name: 'Team Cardinalis',
-	logo: `${siteUrl}/images/companies/teamcardinalis.png`
+	logo: `${siteUrl}/images/companies/teamcardinalis.webp`
 };
 
 // Map schools to more specific schema.org types when possible
@@ -40,13 +40,7 @@ const jsonLd = {
 		addressCountry: 'FR'
 	},
 	image: ogImageUrl,
-	sameAs: [
-		'https://www.linkedin.com/in/killian-ott/',
-		'https://github.com/PR0G3T',
-		'https://www.instagram.com/pr0g3t/',
-		'https://www.facebook.com/PR0G3T/',
-		'https://orcid.org/0009-0001-2059-565X'
-	]
+	sameAs: cv.socials.map((s) => s.href)
 };
 
 const jsonLdSite = {
@@ -75,12 +69,7 @@ const jsonLdOrg = {
 	name: 'PR0G3T',
 	url: `${siteUrl}/`,
 	logo: ogImageUrl,
-	sameAs: [
-		'https://www.linkedin.com/in/killian-ott/',
-		'https://github.com/PR0G3T',
-		'https://www.instagram.com/pr0g3t/',
-		'https://www.facebook.com/PR0G3T/'
-	]
+	sameAs: cv.socials.filter((s) => s.type !== 'orcid').map((s) => s.href)
 };
 
 // Breadcrumb (even single level for homepage)

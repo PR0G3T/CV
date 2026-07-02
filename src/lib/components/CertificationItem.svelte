@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import { getIssuerLogoPath, handleImgError } from '$lib/utils';
+	import { getIssuerLogoPath, handleImgError, resolveUrl } from '$lib/utils';
 	import type { CvCertificationItem } from '$lib/data/cv';
 
 	interface Props {
@@ -8,11 +7,6 @@
 	}
 
 	let { cert }: Props = $props();
-
-	// Resolve local paths with base prefix
-	const resolveCredUrl = (url: string): string => {
-		return url.startsWith('/') ? `${base}${url}` : url;
-	};
 </script>
 
 <article class="item-block">
@@ -34,23 +28,27 @@
 		{/if}
 	</header>
 	{#if cert.subCertifications}
+		<!-- eslint-disable svelte/no-navigation-without-resolve -->
 		<div class="cred-buttons-container">
 			{#each cert.subCertifications as subCert (subCert.name)}
 				<a
+					href={resolveUrl(subCert.link)}
 					class="link cred-link inline-block"
-					href={resolveCredUrl(subCert.link)}
 					rel="noopener noreferrer"
 					target="_blank">{subCert.name}</a
 				>
 			{/each}
 		</div>
+		<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	{:else if cert.link}
+		<!-- eslint-disable svelte/no-navigation-without-resolve -->
 		<a
-			class="link cred-link inline-block"
 			href={cert.link}
+			class="link cred-link inline-block"
 			rel="noopener noreferrer"
 			target="_blank">Credentials</a
 		>
+		<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	{:else if cert.credentialId}
 		<p class="item-meta">Credential ID: {cert.credentialId}</p>
 	{/if}

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import { getSchoolLogoPath, handleImgError } from '$lib/utils';
+	import { getSchoolLogoPath, handleImgError, resolveUrl } from '$lib/utils';
 	import type { CvEducationItem } from '$lib/data/cv';
 	import PdfModal from './PdfModal.svelte';
 
@@ -12,10 +11,6 @@
 
 	let showPdf = $state(false);
 	let pdfUrl = $state('');
-
-	function resolveUrl(url: string): string {
-		return url.startsWith('/') ? `${base}${url}` : url;
-	}
 
 	function openPdf(e: MouseEvent, url: string) {
 		if (url.endsWith('.pdf')) {
@@ -46,25 +41,29 @@
 		<p class="description">{edu.details}</p>
 	{/if}
 	{#if edu.credentials}
+		<!-- eslint-disable svelte/no-navigation-without-resolve -->
 		<div class="cred-buttons-container">
 			{#each edu.credentials as cred (cred.label)}
 				<a
-					class="link cred-link inline-block"
 					href={resolveUrl(cred.href)}
+					class="link cred-link inline-block"
 					onclick={(e) => openPdf(e, cred.href)}
 					rel="noopener noreferrer"
 					target="_blank">{cred.label}</a
 				>
 			{/each}
 		</div>
+		<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	{:else if edu.credential}
+		<!-- eslint-disable svelte/no-navigation-without-resolve -->
 		<a
-			class="link cred-link inline-block"
 			href={resolveUrl(edu.credential)}
+			class="link cred-link inline-block"
 			onclick={(e) => openPdf(e, edu.credential ?? '')}
 			rel="noopener noreferrer"
 			target="_blank">{edu.credentialLabel ?? 'Credential'}</a
 		>
+		<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	{/if}
 
 	{#if showPdf}

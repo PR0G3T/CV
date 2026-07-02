@@ -6,7 +6,9 @@
 	font-weight: 100 900;
 	font-display: swap;
 	font-style: normal;
-	src: url('/fonts/inter-display/InterVariable.ttf') format('truetype');
+	src:
+		url('/fonts/inter-display/InterVariable.woff2') format('woff2'),
+		url('/fonts/inter-display/InterVariable.ttf') format('truetype');
 }
 
 @font-face {
@@ -14,7 +16,9 @@
 	font-weight: 100 900;
 	font-display: swap;
 	font-style: italic;
-	src: url('/fonts/inter-display/InterVariable-Italic.ttf') format('truetype');
+	src:
+		url('/fonts/inter-display/InterVariable-Italic.woff2') format('woff2'),
+		url('/fonts/inter-display/InterVariable-Italic.ttf') format('truetype');
 }
 
 /* Minimal white theme on dark canvas: generous whitespace, legible type, subtle dividers */
@@ -70,6 +74,7 @@ body {
 		Arial,
 		'Apple Color Emoji',
 		'Segoe UI Emoji';
+	font-optical-sizing: auto;
 }
 
 /* Base spacing rhythm */

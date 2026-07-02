@@ -12,6 +12,7 @@
 	<header class="flex flex-wrap items-baseline gap-2">
 		<h3 class="item-title">{project.name}</h3>
 		{#if project.link}
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a class="link" href={project.link} rel="noopener noreferrer" target="_blank">Link</a>
 		{/if}
 	</header>

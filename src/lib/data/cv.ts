@@ -1,8 +1,9 @@
 // Centralized CV data to keep the page markup minimal and DRY
 // Replace placeholder values with your real information
-export interface CvLink {
-	label: string;
+export interface CvSocialLink {
+	type: 'linkedin' | 'github' | 'instagram' | 'facebook' | 'orcid';
 	href: string;
+	label: string;
 }
 
 export interface CvExperienceItem {
@@ -56,7 +57,7 @@ export interface CvData {
 	title: string;
 	summary: string;
 	location?: string;
-	links: CvLink[];
+	socials: CvSocialLink[];
 	skills: string[];
 	experience: CvExperienceItem[];
 	projects?: CvProjectItem[];
@@ -71,7 +72,13 @@ const cv: CvData = {
 	summary:
 		'I stand in awe of the sheer scale of human potential. A privileged witness to our unfolding evolution, I seek not merely to watch, but to act, to leave a legacy that outlasts my time, forever inscribed in the collective consciousness.',
 	location: '',
-	links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/killian-ott/' }],
+	socials: [
+		{ type: 'linkedin', href: 'https://www.linkedin.com/in/killian-ott/', label: 'LinkedIn' },
+		{ type: 'github', href: 'https://github.com/PR0G3T', label: 'GitHub' },
+		{ type: 'instagram', href: 'https://www.instagram.com/pr0g3t/', label: 'Instagram' },
+		{ type: 'facebook', href: 'https://www.facebook.com/PR0G3T/', label: 'Facebook' },
+		{ type: 'orcid', href: 'https://orcid.org/0009-0001-2059-565X', label: 'ORCID' }
+	],
 	skills: [
 		'Artificial Intelligence (AI)',
 		'Computer Science',
@@ -81,7 +88,7 @@ const cv: CvData = {
 	],
 	experience: [
 		{
-			company: 'Sup de Vinci - école d\'informatique',
+			company: "Sup de Vinci - école d'informatique",
 			role: 'Instructor (Freelance)',
 			period: 'Dec 2025 - Present',
 			location: 'Bordeaux, Nouvelle-Aquitaine, France',
@@ -217,11 +224,11 @@ const cv: CvData = {
 			subCertifications: [
 				{
 					name: 'Fundamentals of Remote Sensing',
-					link: '/credentials/arset/fundamentals-of-remote-sensing.png'
+					link: '/credentials/arset/fundamentals-of-remote-sensing.webp'
 				},
 				{
 					name: 'Hyperspectral Data for Land and Coastal Systems',
-					link: '/credentials/arset/hyperspectral-data-for-land-and-coastal-systems.png'
+					link: '/credentials/arset/hyperspectral-data-for-land-and-coastal-systems.webp'
 				}
 			]
 		},
@@ -232,11 +239,11 @@ const cv: CvData = {
 			subCertifications: [
 				{
 					name: '5G Introductory Level',
-					link: '/credentials/qualcomm/5g-introductory-level.png'
+					link: '/credentials/qualcomm/5g-introductory-level.webp'
 				},
 				{
 					name: 'AI Upskilling Certificate - Technical Foundation',
-					link: '/credentials/qualcomm/ai-upskilling-certificate-technical-foundation.png'
+					link: '/credentials/qualcomm/ai-upskilling-certificate-technical-foundation.webp'
 				}
 			]
 		}
